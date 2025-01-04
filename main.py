@@ -13,14 +13,14 @@ def load_data():
 data = load_data()
 
 # 제목 표시
-st.title("Global Temperature Change Visualization")
+st.title("전 세계 국가/지역별 기온 변화 (1960~2020)")
 
 # 지역 및 기간 선택
 areas = data['Area'].unique()
-selected_area = st.selectbox("Select a country or region:", areas)
+selected_area = st.selectbox("국가 또는 지역을 선택하세요:", areas)
 
 time_columns = [col for col in data.columns if col.startswith('Y')]
-selected_years = st.slider("Select a range of years:", 1961, 2019, (1961, 2019))
+selected_years = st.slider("기간을 설정하세요:", 1961, 2019, (1961, 2019))
 
 # 데이터 필터링
 filtered_data = data[(data['Area'] == selected_area) & (data['Element'] == 'Temperature change')]
