@@ -13,7 +13,7 @@ def load_data():
 data = load_data()
 
 # 제목 표시
-st.title("전 세계 국가/지역별 기온 변화 (1960~2020)")
+st.title("전 세계 국가/지역별 기온 변화 추세 (1960~2020)")
 
 # 지역 및 기간 선택
 areas = data['Area'].unique()
