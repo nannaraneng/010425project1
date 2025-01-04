@@ -4,7 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # 데이터 로드
-@st.cache
+@st.cache_data
 def load_data():
     file_path = 'Environment_Temperature_change_E_All_Data_NOFLAG.csv'  # 파일 경로
     data = pd.read_csv(file_path, encoding='latin1')
