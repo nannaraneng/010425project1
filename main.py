@@ -13,14 +13,14 @@ def load_data():
 data = load_data()
 
 # 제목 표시
-st.title("전 세계 국가/지역별 기온 변화 추세 (1960~2020)")
+st.title(":thermometer:전 세계 국가/지역별 기온 변화 추세 (1960~2020)")
 
 # 지역 및 기간 선택
 areas = data['Area'].unique()
-selected_area = st.selectbox("국가 또는 지역을 선택하세요:", areas)
+selected_area = st.selectbox(":earth_asia:국가 또는 지역을 선택하세요:", areas)
 
 time_columns = [col for col in data.columns if col.startswith('Y')]
-selected_years = st.slider("기간을 설정하세요:", 1961, 2019, (1961, 2019))
+selected_years = st.slider(":label:기간을 설정하세요:", 1961, 2019, (1961, 2019))
 
 # 데이터 필터링
 filtered_data = data[(data['Area'] == selected_area) & (data['Element'] == 'Temperature change')]
@@ -33,7 +33,7 @@ if not time_data.empty:
     years = [int(col[1:]) for col in mean_temp.index]
 
     plt.figure(figsize=(10, 6))
-    plt.plot(years, mean_temp, marker='o', label='Temperature Change (°C)')
+    plt.plot(years, mean_temp, marker='o', label='Temperature Change (°C)', color='r')
     plt.title(f'Temperature Change in {selected_area} ({selected_years[0]}-{selected_years[1]})')
     plt.xlabel('Year')
     plt.ylabel('Temperature Change (°C)')
